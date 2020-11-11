@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import './index.css';
 
-export default function TreeSelect({ values }) {
+export default function TreeSelect({ values, placeholder }) {
   const node = useRef();
   const [inputValue, setInputValue] = useState('');
   const [open, setOpen] = useState(false);
@@ -25,7 +25,7 @@ export default function TreeSelect({ values }) {
     <div
       ref={node}
       className="tree-select"
-      style={{ height: `${30 * (1 + values.length)}px` }}
+      style={{ height: `${40 * (1 + values.length)}px` }}
     >
       <input
         type="text"
@@ -35,6 +35,7 @@ export default function TreeSelect({ values }) {
           setInputValue(e.target.value.toString());
         }}
         onFocus={() => setOpen(!open)}
+        placeholder={placeholder}
       />
       <div className="options">
         {open && displayedValues.map((v) => (

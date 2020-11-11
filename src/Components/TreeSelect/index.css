@@ -6,6 +6,7 @@
 
 .tree-select input {
   width: 100%;
+  height: 40px;
   padding-left: 20px;
   outline: none;
   border: 1px solid rgb(217, 217, 217);
@@ -24,13 +25,15 @@
     0 2px 4px -1px rgba(0, 0, 0, 0.06);
   border-radius: 5px;
 }
+
 .tree-select .option {
   width: 100%;
-  height: 30px;
+  height: 40px;
   display: flex;
   align-items: center;
   padding-left: 20px;
   transition: 0.2s;
+  outline: none;
 }
 
 .tree-select .option:hover {
