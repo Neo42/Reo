@@ -6,8 +6,9 @@ export default function TreeSelect({ values, placeholder }) {
   const node = useRef();
   const [inputValue, setInputValue] = useState('');
   const [open, setOpen] = useState(false);
-  const displayedValues = values.filter((v) => v.toString()
-    .toLowerCase().includes(inputValue.toLowerCase()));
+  const displayedValues = values.filter(
+    (v) => v.toString().toLowerCase().includes(inputValue.toLowerCase()),
+  );
 
   const handleClick = (e) => {
     if (node.current.contains(e.target)) {
@@ -19,13 +20,13 @@ export default function TreeSelect({ values, placeholder }) {
   useEffect(() => {
     document.addEventListener('click', handleClick);
     return () => document.removeEventListener('click', handleClick);
-  }, [open]);
+  }, []);
 
   return (
     <div
       ref={node}
       className="tree-select"
-      style={{ height: `${40 * (1 + values.length)}px` }}
+      style={{ height: `${40 * (1 + displayedValues.length)}px` }}
     >
       <input
         type="text"
@@ -45,7 +46,7 @@ export default function TreeSelect({ values, placeholder }) {
               setInputValue(v);
               setOpen(!open);
             }}
-            onKeyDown={() => { }}
+            onKeyDown={() => {}}
             role="option"
             aria-selected
             tabIndex={-1}

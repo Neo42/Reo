@@ -12,36 +12,54 @@ class App extends Component {
 
   handleCancel = () => this.setState({ showModal: false });
 
-  handleOk = () => console.log('OK!');
+  handleOk = () => {
+    console.log('OK!');
+    this.setState({ showModal: false });
+  }
 
   render() {
     const { options, showModal } = this.state;
     return (
       <div className="app">
-        <TreeSelect
-          values={options}
-          placeholder="Who is the one in the Matrix?"
-        />
+        <div className="tree-select-box">
+          <TreeSelect
+            values={options}
+            placeholder="Who is the one in the Matrix?"
+          />
+        </div>
         <div className="modal-box">
           <button
+            className="modal-button"
             type="button"
             onClick={() => this.setState({ showModal: !showModal })}
           >
-            Open Modal
+            Modal
           </button>
           {showModal && (
           <Modal
+            hideModal={this.handleCancel}
+            showModal={showModal}
             closable
-            title={<h2>Title</h2>}
+            title={<p>My Fancy Modal</p>}
             footer={[
-              <button key="back" type="button" onClick={this.handleCancel}>
+              <button
+                key="back"
+                type="button"
+                onClick={this.handleCancel}
+              >
                 Return
               </button>,
-              <button key="submit" type="button" onClick={this.handleOk}>
+              <button
+                key="submit"
+                type="button"
+                onClick={this.handleOk}
+              >
                 Submit
               </button>,
             ]}
           >
+            <p>This is some content...</p>
+            <p>This is some content...</p>
             <p>This is some content...</p>
           </Modal>
           )}
