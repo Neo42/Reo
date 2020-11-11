@@ -10,5 +10,11 @@ body {
   display: flex;
   width: 800px;
   height: 400px;
-  justify-content: space-between;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.modal-box {
+  height: 300px;
+  width: 400px;
 }

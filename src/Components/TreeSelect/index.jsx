@@ -19,7 +19,7 @@ export default function TreeSelect({ values, placeholder }) {
   useEffect(() => {
     document.addEventListener('click', handleClick);
     return () => document.removeEventListener('click', handleClick);
-  }, []);
+  }, [open]);
 
   return (
     <div
@@ -45,10 +45,11 @@ export default function TreeSelect({ values, placeholder }) {
               setInputValue(v);
               setOpen(!open);
             }}
-            onKeyDown={() => {}}
+            onKeyDown={() => { }}
             role="option"
             aria-selected
             tabIndex={-1}
+            key={v.toString().toLowerCase()}
           >
             {v}
           </div>
