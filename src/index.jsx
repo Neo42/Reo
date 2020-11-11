@@ -13,7 +13,7 @@ class App extends Component {
   handleCancel = () => this.setState({ showModal: false });
 
   handleOk = () => {
-    console.log('OK!');
+    console.log('Submitted.');
     this.setState({ showModal: false });
   }
 

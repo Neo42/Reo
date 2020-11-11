@@ -6,7 +6,6 @@ export default ({
 }) => {
   const node = useRef();
   const handleClick = (e) => {
-    console.log(showModal);
     if (node.current && node.current.contains(e.target)) {
       return;
     }
