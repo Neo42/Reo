@@ -20,9 +20,6 @@ module.exports = {
   rules: {
     'linebreak-style': 'off',
     'react/prop-types': 'off',
-    'no-unused-vars': 'off',
-    'react/prefer-stateless-function': 'off',
-    'react/state-in-constructor': 'off',
     'no-console': 'off',
   },
   parser: 'babel-eslint',

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import TreeSelect from './Components/TreeSelect';
 import Modal from './Components/Modal';
@@ -7,37 +7,33 @@ import './index.css';
 
 const arr = ['Neo', 'Trinity', 'Morpheus', 'Tank'];
 
-class App extends Component {
-  state = { options: arr, showModal: false }
-
-  handleCancel = () => this.setState({ showModal: false });
-
-  handleOk = () => {
+function App() {
+  const [options] = useState(arr);
+  const [showModal, setShowModal] = useState(false);
+  const handleCancel = () => setShowModal(false);
+  const handleOk = () => {
     console.log('Submitted.');
-    this.setState({ showModal: false });
-  }
-
-  render() {
-    const { options, showModal } = this.state;
-    return (
-      <div className="app">
-        <div className="tree-select-box">
-          <TreeSelect
-            values={options}
-            placeholder="Who is the one in the Matrix?"
-          />
-        </div>
-        <div className="modal-box">
-          <button
-            className="modal-button"
-            type="button"
-            onClick={() => this.setState({ showModal: !showModal })}
-          >
-            Modal
-          </button>
-          {showModal && (
+    setShowModal(false);
+  };
+  return (
+    <div className="app">
+      <div className="tree-select-box">
+        <TreeSelect
+          values={options}
+          placeholder="Who is the one in the Matrix?"
+        />
+      </div>
+      <div className="modal-box">
+        <button
+          className="modal-button"
+          type="button"
+          onClick={() => setShowModal(!showModal)}
+        >
+          Modal
+        </button>
+        {showModal && (
           <Modal
-            hideModal={this.handleCancel}
+            hideModal={handleCancel}
             showModal={showModal}
             closable
             title={<p>My Fancy Modal</p>}
@@ -45,14 +41,14 @@ class App extends Component {
               <button
                 key="back"
                 type="button"
-                onClick={this.handleCancel}
+                onClick={handleCancel}
               >
                 Return
               </button>,
               <button
                 key="submit"
                 type="button"
-                onClick={this.handleOk}
+                onClick={handleOk}
               >
                 Submit
               </button>,
@@ -62,10 +58,10 @@ class App extends Component {
             <p>This is some content...</p>
             <p>This is some content...</p>
           </Modal>
-          )}
-        </div>
+        )}
       </div>
-    );
-  }
+    </div>
+  );
 }
+
 ReactDOM.render(<App />, document.querySelector('#root'));

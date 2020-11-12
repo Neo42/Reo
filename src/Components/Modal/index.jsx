@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import './index.css';
 
 export default ({
-  title, footer, children, closable, hideModal, showModal,
+  title, footer, children, closable, hideModal,
 }) => {
   const node = useRef();
   const handleClick = (e) => {
