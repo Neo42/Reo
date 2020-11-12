@@ -34,7 +34,6 @@ function App() {
         {showModal && (
           <Modal
             hideModal={handleCancel}
-            showModal={showModal}
             closable
             title={<p>My Fancy Modal</p>}
             footer={[

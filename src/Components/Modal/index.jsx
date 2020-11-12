@@ -2,7 +2,21 @@ import React, { useEffect, useRef } from 'react';
 import './index.css';
 
 export default ({
-  title, footer, children, closable, hideModal,
+  title = <p>My Fancy Modal</p>,
+  footer = [
+    <button
+      key="back"
+      type="button"
+    >
+      Return
+    </button>,
+    <button
+      key="submit"
+      type="button"
+    >
+      Submit
+    </button>,
+  ], children, closable = true, hideModal,
 }) => {
   const node = useRef();
   const handleClick = (e) => {
